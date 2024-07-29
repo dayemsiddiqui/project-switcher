@@ -1,0 +1,31 @@
+# projects.yaml
+
+projects:
+  bonfire:
+    directory: "~/Herd/hellobonfire"
+    startup:
+      - "open -a 'PhpStorm' ."
+      - "npm run dev &"
+      - "osascript -e 'tell application \"Terminal\" to do script \"cd ~/Herd/hellobonfire && php artisan serve\"'"
+    shutdown:
+      - "pkill -f 'npm run dev'"
+      - "pkill -f 'php artisan serve'"
+      - "osascript -e 'tell application \"PhpStorm\" to quit'"
+
+  project-switcher:
+    directory: "~/dev/project-switcher"
+    startup:
+      - "open -a 'PyCharm Professional Edition' ."
+    shutdown:
+        - "osascript -e 'tell application \"PyCharm\" to quit'"
+
+  kotlin:
+    directory: "~/path/to/kotlin/project"
+    startup:
+      - "open -a 'IntelliJ IDEA' ."
+      - "gradle run &"
+    shutdown:
+      - "pkill -f 'gradle run'"
+      - "osascript -e 'tell application \"IntelliJ IDEA\" to quit'"
+
+  # Add more projects as needed
